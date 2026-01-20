@@ -2,7 +2,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, Variants } from 'framer-motion';
 import ConsultationFormPopup from './popup';
 // import ConsultationFormPopup from './popupform';
 
@@ -19,7 +19,7 @@ const StudentTransformations = () => {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
-  const titleVariants = {
+  const titleVariants: Variants = {
     hidden: { 
       opacity: 0, 
       y: 20 
@@ -28,7 +28,7 @@ const StudentTransformations = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15
       }
@@ -255,7 +255,7 @@ const StudentTransformations = () => {
           {sections.map((section, index) => (
             <div 
               key={index}
-              ref={el => contentRefs.current[index] = el}
+              ref={(el) => { contentRefs.current[index] = el; }}
               className={`lg:grid lg:grid-cols-2 lg:gap-16 lg:items-center max-[470px]:mb-8 mb-15 lg:mb-15 ${
                 index % 2 === 0 ? 'lg:grid-flow-dense' : ''
               }`}
@@ -288,7 +288,7 @@ const StudentTransformations = () => {
               {/* Image */}
               <div className={`relative ${index % 2 === 0 ? 'lg:order-1' : ''}`}>
                 <div 
-                  ref={el => imageRefs.current[index] = el}
+                  ref={(el) => {imageRefs.current[index] = el}}
                   className="relative rounded-2xl overflow-hidden shadow-2xl transform transition-transform duration-200 cursor-pointer" // Very fast
                   onMouseEnter={() => handleImageHover(index)}
                   onMouseLeave={() => handleImageLeave(index)}

@@ -1,24 +1,10 @@
 "use client";
-// import { ThankNavbar } from '@/components/thank-header';
 import Link from 'next/link';
 import Script from 'next/script';
-import { useEffect } from 'react';
 
 export default function ThankYou() {
-  // Trigger conversion event on page load
-  useEffect(() => {
-    if (typeof window !== 'undefined' && window.gtag) {
-      window.gtag('event', 'conversion', {
-        'send_to': 'AW-17491253863/4lSxCPfO_okbEOe0vZRB',
-        'value': 1.0,
-        'currency': 'INR'
-      });
-    }
-  }, []);
-
   return (
     <>
-      {/* <ThankNavbar /> */}
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
       `}</style>

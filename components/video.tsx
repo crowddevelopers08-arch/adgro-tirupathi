@@ -3,7 +3,7 @@ import { motion, useInView } from "framer-motion";
 import React, { useState, useRef } from "react";
 
 const VideoCarousel = () => {
-  const [activeVideo, setActiveVideo] = useState(null);
+  const [activeVideo, setActiveVideo] = useState<string | null >(null);
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
@@ -16,7 +16,7 @@ const VideoCarousel = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15
       }
@@ -52,7 +52,7 @@ const VideoCarousel = () => {
   ];
 
   // Function to extract YouTube ID from various URL formats
-  const getYouTubeId = (url) => {
+  const getYouTubeId = (url : string): string => {
     if (!url) return '';
     
     const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
@@ -60,7 +60,7 @@ const VideoCarousel = () => {
     return match ? match[1] : '';
   };
 
-  const playVideo = (videoId) => {
+  const playVideo = (videoId : string): void => {
     if (activeVideo === videoId) {
       setActiveVideo(null);
     } else {

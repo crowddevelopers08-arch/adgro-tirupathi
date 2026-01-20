@@ -50,8 +50,8 @@ const MarqueeImageRow = () => {
   const sectionRef = useRef(null);
   const [scrollPosition, setScrollPosition] = useState(0);
   const containerRef = useRef(null);
-  const scrollRef = useRef(null);
-  const animationRef = useRef(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const animationRef = useRef<number | null>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   
   const titleVariants = {
@@ -63,7 +63,7 @@ const MarqueeImageRow = () => {
       opacity: 1,
       y: 0,
       transition: {
-        type: "spring",
+        type: "spring" as const,
         stiffness: 100,
         damping: 15
       }
@@ -77,8 +77,8 @@ const MarqueeImageRow = () => {
     if (isPaused || !scrollRef.current) return;
 
     setScrollPosition(prev => {
+      const maxScroll = (scrollRef.current?.scrollWidth ?? 0) / 3;
       const newPosition = prev + 1;
-      const maxScroll = scrollRef.current.scrollWidth / 3;
       
       if (newPosition >= maxScroll) {
         return 0;
@@ -100,22 +100,6 @@ const MarqueeImageRow = () => {
       }
     };
   }, [isPaused]);
-
-  const handlePrev = () => {
-    setScrollPosition(prev => {
-      const newPosition = prev - 100;
-      const maxScroll = scrollRef.current?.scrollWidth / 3 || 0;
-      return newPosition < 0 ? maxScroll - 100 : newPosition;
-    });
-  };
-
-  const handleNext = () => {
-    setScrollPosition(prev => {
-      const newPosition = prev + 100;
-      const maxScroll = scrollRef.current?.scrollWidth / 3 || 0;
-      return newPosition >= maxScroll ? 0 : newPosition;
-    });
-  };
 
   const togglePause = () => {
     setIsPaused(!isPaused);

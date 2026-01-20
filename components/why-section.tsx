@@ -31,7 +31,7 @@ const itemVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 15
     }
@@ -49,7 +49,7 @@ const imageVariants = {
     scale: 1,
     x: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 15,
       delay: 0.5
@@ -66,7 +66,7 @@ const titleVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 100,
       damping: 15
     }
@@ -84,7 +84,7 @@ const iconVariants = {
     scale: 1,
     rotate: 0,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 200,
       damping: 15,
       duration: 0.6
@@ -94,7 +94,7 @@ const iconVariants = {
     scale: 1.2,
     rotate: 5,
     transition: {
-      type: "spring",
+      type: "spring" as const,
       stiffness: 400,
       damping: 10
     }
