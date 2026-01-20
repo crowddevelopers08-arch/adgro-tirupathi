@@ -7,23 +7,7 @@ export default function ThankYou() {
     <>
       <style jsx global>{`
         @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
-      `}</style>
-      
-      {/* Microsoft Clarity Tracking Script */}
-      <Script
-        id="microsoft-clarity"
-        strategy="afterInteractive"
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "tgmvwwtxjo");
-          `
-        }}
-      />
-      
+      `}</style>     
       <div className="min-h-screen bg-[#101828] text-white flex flex-col"
             style={{fontFamily: "'Outfit', sans-serif"}}>
         <main className="flex-grow flex items-center justify-center px-4 py-12">

@@ -5,22 +5,6 @@ import ContactForm from './popup';
 const Footer = () => {
   const [isFormOpen, setIsFormOpen] = useState(false);
 
-  // Handle phone call click with conversion tracking
-  const handlePhoneClick = (e: React.MouseEvent) => {
-    if (typeof gtag_report_conversion !== 'undefined') {
-      e.preventDefault();
-      gtag_report_conversion('tel:+917436856789');
-    }
-  };
-
-  // Handle mobile phone call click with conversion tracking
-  const handleMobilePhoneClick = (e: React.MouseEvent) => {
-    if (typeof gtag_report_conversion !== 'undefined') {
-      e.preventDefault();
-      gtag_report_conversion('tel:+917436856789');
-    }
-  };
-
   // Handle book now click
   const handleBookNowClick = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -51,7 +35,6 @@ const Footer = () => {
           <div className="lg:hidden max-[470px]:flex fixed bottom-0 left-0 right-0 z-50 w-full">
             <a 
               href="tel:+917436856789" 
-              onClick={handleMobilePhoneClick}
               className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#d90f12] text-white font-bold text-base transition-all duration-300 hover:bg-[#e0006a] active:translate-y-px cursor-pointer"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="white">

@@ -28,14 +28,7 @@ const ContactForm = () => {
     return () => ctx.revert();
   }, []);
 
-  // Handle phone call click with conversion tracking
-  const handlePhoneClick = (e: React.MouseEvent) => {
-    // Track conversion when phone number is clicked
-    if (typeof gtag_report_conversion !== 'undefined') {
-      e.preventDefault();
-      gtag_report_conversion('tel:+917436856789');
-    }
-  };
+ 
 
   return (
     <>
@@ -106,7 +99,7 @@ const ContactForm = () => {
                     </div>
                     <a 
                       href="tel:+917436856789" 
-                      onClick={handlePhoneClick}
+                      // onClick={handlePhoneClick}
                       className="hover:opacity-80 transition-opacity"
                     >
                       <div className="flex-1 min-w-0">
