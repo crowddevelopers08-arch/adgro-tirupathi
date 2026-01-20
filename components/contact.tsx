@@ -121,7 +121,7 @@ const ContactForm = () => {
                     Privacy Policy
                   </a>
                   <a 
-                    href="/about-us" 
+                    href="/" 
                     className="text-gray-700 hover:text-[#d90f12] transition-colors text-base font-semibold py-2 px-4 rounded-lg hover:bg-gray-50"
                   >
                     About Us
