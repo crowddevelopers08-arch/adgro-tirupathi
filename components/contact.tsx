@@ -110,8 +110,6 @@ const ContactForm = () => {
                   </div>
                 </div>
               </div>
-
-              {/* Links - Centered with more visibility */}
               <div className="pt-4 border-t-2 border-gray-300">
                 <div className="flex justify-center gap-8">
                   <a 
